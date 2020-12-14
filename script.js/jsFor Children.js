@@ -21,3 +21,15 @@ var firstLetter = lowerStr[0];
 var firstLetterUp = firstLetter.toUpperCase();
 var newS = lowerStr.slice[1];
 var newStr = newS + firstLetterUp;
+//str1[0].toUpperCase() + str1.slice(1).toLowerCase();
+
+//Дразнилки
+var randomBodyParts = ["уши","нос","губы","глаза"];
+var randomPrils = ["унылая","вонючая","дурацкая","смешная"];
+var randomWords = ["муха","крыса","мартышка","блошка"];
+var randomBodyPart = randomBodyParts[Math.floor(Math.random() * randomBodyParts.length)];
+var randomPril = randomPrils[Math.floor(Math.random() * randomPrils.length)];
+var randomWord = randomWords[Math.floor(Math.random() * randomWords.length)];
+var randomResult = "Утебя " + randomBodyPart + " словно " + randomPril + " " + randomWord + "!!!"
+//randomResult = ["Утебя " + randomBodyPart + " словно " + randomPril + " " + randomWord + "!!!"].join(" ");
+randomResult;
