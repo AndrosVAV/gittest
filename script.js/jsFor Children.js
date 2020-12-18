@@ -56,3 +56,49 @@ $("h1").fadeOut(3000);
 $("h1").text("Исчезаючий текст").fadeOut(3000);
 $("h1").fadeOut(3000).fadeIn(3000);
 $("h1").slideUp(2000).slideDown(2000);
+
+//ИНТЕРАКТИВНОЕ ПРОГРАММИРОВАНИЕ
+//setTimeout
+var timeUp = function(){
+    alert("Ваше время вышло");
+};
+setTimeout(timeUp,3000);
+//отмена действия таймера
+var homeWork = function(){
+    alert("just do it");
+};
+var timeid = setTimeout(homeWork,5000);
+//clearTimeout(timeid);
+
+//setInterval
+var counter = 0;
+var message2 = function(){
+    console.log("Начни что-то делать Ты смотришь на монитор уже " + counter + " секунд");
+    counter++;
+};
+var interId = setInterval(message2,1000);
+//clearInterval(interId);
+
+//Анимация элем с помощью setInterval;
+var leftOffset = 0;
+var moveHeading = function(){
+    $("#heading").offset({left:leftOffset});
+    leftOffset++;
+    if(leftOffset > 200){
+    leftOffset = 0;
+    }
+};
+setInterval(moveHeading,30);
+
+//Реакция на действие пользователя;
+var clickHand1 = function(event){
+    console.log("Клик! " + event.pageX + " " + event.pageY);
+};
+$("h1").click(clickHand1);
+//событие mousemove;
+$("html").mousemove(function(event){
+    $("#heading").offset({
+        left:event.pageX,
+        top:event.pageY
+    });
+});
