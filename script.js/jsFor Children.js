@@ -1,4 +1,5 @@
-///Рисуем котиков
+//Разбираю книгу JAVASCRIPT для детей
+//Рисуем котиков
 var drawCats = function (howManyTimes){
     for(var i = 0;i < howManyTimes;i++){
         console.log(i + " =^.^= ");
@@ -33,3 +34,25 @@ var randomWord = randomWords[Math.floor(Math.random() * randomWords.length)];
 var randomResult = "Утебя " + randomBodyPart + " словно " + randomPril + " " + randomWord + "!!!"
 //randomResult = ["Утебя " + randomBodyPart + " словно " + randomPril + " " + randomWord + "!!!"].join(" ");
 randomResult;
+
+//DOM Меняем заголовок(c.147)
+var headingElem = document.getElementById("heading");
+console.log(headingElem.innerHTML);
+var newText = prompt("Введите новый заголовок");
+headingElem.innerHTML = newText;
+// jQuery Меняем заголовок(c.150);
+var newText2 = prompt("введите еще один заголовок");
+$("#heading").text(newText2);
+//Создание новый элементов через jQuery(c.150);
+$("body").append("<p>Это будет что-то грандиозное</p>");
+//Добавление елем с помощью цикла for
+for(var i = 0;i < 3;i++){
+    var hoby = prompt("Назовите одно из своих хобби!");
+    $("body").append("<p>" + hoby + "</p>"); 
+}
+//Анимация элементов(jQuery);
+$("h1").fadeOut(3000);
+//Цепной вызов
+$("h1").text("Исчезаючий текст").fadeOut(3000);
+$("h1").fadeOut(3000).fadeIn(3000);
+$("h1").slideUp(2000).slideDown(2000);
