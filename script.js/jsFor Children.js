@@ -132,6 +132,59 @@ for(var x = 2;x < 10000;x = x * 2){
 
 
 
+//ИГРА ВИСЕЛИЦА(УГАДАЙ СЛОВО) - (C.110);
+
+/*
+//СОЗДАЁМ МАССИВ СО СЛОВАМИ
+var words = [
+    "джунгли",
+    "прерия",
+    "пустыня",
+    "саванна"
+];
+//выбираем случайное слово
+var word = words[Math.floor(Math.random() * words.length)];
+
+//создаём итоговый массив
+var answerArray = [];
+for(var i = 0;i < words.length;i++){
+   answerArray[i] = "_"; 
+}
+var remainLetters = word.length;
+
+//игровой цикл
+while(remainLetters > 0){
+    //показываем состояние игры
+    alert(answerArray.join(" "));
+    //запрашиваем вариант ответа
+    var gues = prompt("Угадайте букву или нажмите отмена для выхода из игры");
+    if(gues === null){
+        //выходим из игры
+        break;
+    }else if(gues.length !== 1){
+      alert("Пожалуйста введите одиночную букву");  
+    }else{
+        //обновляем состояние игры
+        for(var j = 0;j < word.length;j++){
+            if(word[j] === gues){
+            answerArray[j] = gues;
+            remainLetters--;
+            }
+        }
+    }
+    //конец игрового цикла
+}
+//отображаем ответ и поздравляем игрока
+alert(answerArray.join(" "));
+alert("Отлично! Загаданное слово " + word);
+
+*/
+
+
+
+
+
+
 
 
 //DOM Меняем заголовок(c.147)
