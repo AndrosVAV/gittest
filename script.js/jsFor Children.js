@@ -132,6 +132,10 @@ for(var x = 2;x < 10000;x = x * 2){
 
 
 
+
+
+
+
 //ИГРА ВИСЕЛИЦА(УГАДАЙ СЛОВО) - (C.110);
 
 /*
@@ -147,7 +151,7 @@ var word = words[Math.floor(Math.random() * words.length)];
 
 //создаём итоговый массив
 var answerArray = [];
-for(var i = 0;i < words.length;i++){
+for(var i = 0;i < word.length;i++){
    answerArray[i] = "_"; 
 }
 var remainLetters = word.length;
@@ -179,6 +183,14 @@ alert(answerArray.join(" "));
 alert("Отлично! Загаданное слово " + word);
 
 */
+
+
+
+
+
+
+
+
 
 //ФУНКЦИИ(c.126)
 //Передача в функцию нескольких значений(c.130)
@@ -292,3 +304,62 @@ $("html").mousemove(function(event){
         top:event.pageY
     });
 });
+
+
+//ООП Обьектно-ориентированное программирование(c.176);
+
+//простой обьект(c.176);
+var dog ={
+    name : "Оладушек",
+    legs : 4,
+    isAwesome : true
+};
+dog.age = 6;
+//Добавление к обьектам новых методов(c.177)
+dog.bark = function(){
+    //console.log("Гав-гав меня зовут " + this.name + "!");
+}
+dog.bark();
+//Ключевое слово this(c.180);
+//Используем один метод с разными обьектами(c.178);
+
+var speak = function(){
+    //console.log(this.sound + " Меня зовут " + this.name + "!");
+};
+var cat1 = {
+    sound : "мяу-мяу",
+    name : "Варежка",
+    speak : speak
+};
+
+var pig = {
+    sound : "хрю-хрю",
+    name : "Чарли",
+    speak : speak
+};
+var horse = {
+    sound : "и-го-го",
+    name : "Мэри",
+    speak : speak
+};
+cat1.speak();
+horse.speak();
+pig.speak();
+
+//СОЗДАНИЕ ОБЬЕКТОВ С ПОМОЩЬЮ КОНСТРУКТОРА(c.180);
+var Car = function(x,y){
+    this.x = x;
+    this.y = y;
+};
+//Рисуем машины(c.182);
+var drawCar = function(car){
+    var carHTML = '<img src = "https://nostarch.com/images/car.png">';
+    var carElement = $(carHTML);
+    carElement.css({
+        position : "absolute",
+        left : car.x,
+        top : car.y
+    });
+    $("body").append(carElement);
+};
+
