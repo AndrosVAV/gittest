@@ -306,8 +306,9 @@ $("html").mousemove(function(event){
 });
 
 
-//ООП Обьектно-ориентированное программирование(c.176);
 
+
+//ООП Обьектно-ориентированное программирование(c.176);
 //простой обьект(c.176);
 var dog ={
     name : "Оладушек",
@@ -320,7 +321,7 @@ dog.bark = function(){
     //console.log("Гав-гав меня зовут " + this.name + "!");
 }
 dog.bark();
-//Ключевое слово this(c.180);
+//Ключевое слово this(c.178);
 //Используем один метод с разными обьектами(c.178);
 
 var speak = function(){
@@ -346,6 +347,8 @@ cat1.speak();
 horse.speak();
 pig.speak();
 
+
+
 //СОЗДАНИЕ ОБЬЕКТОВ С ПОМОЩЬЮ КОНСТРУКТОРА(c.180);
 var Car = function(x,y){
     this.x = x;
@@ -360,6 +363,42 @@ var drawCar = function(car){
         left : car.x,
         top : car.y
     });
-    $("body").append(carElement);
+   // $("body").append(carElement);
 };
+
+/*
+var tesla = new Car(20,20);
+var nissan = new Car(100,200);
+drawCar(tesla);
+drawCar(nissan);
+*/
+
+
+
+//НАСТРОЙКА ОБЬЕКТОВ ЧЕРЕЗ ПРОТОТИПЫ(C.184);
+
+/*
+//ДОБАВЛЯЕМ МЕТОД draw К ПРОТОТИПУ CAR
+var Car = function(x,y){
+    this.x = x;
+    this.y = y;
+};
+Car.prototype.draw = function(car){
+    var carHTML = '<img src = "https://nostarch.com/images/car.png">';
+	
+	this.carElement = $(carHTML);
+	
+	this.carElement.css({
+        position: "absolute",
+        left: this.x,
+        top: this.y
+    });
+    $("body").append(this.carElement);
+};
+
+var tesla = new Car(20,20);
+var nissan = new Car(100,200);
+tesla.draw();
+nissan.draw();
+*/
 
