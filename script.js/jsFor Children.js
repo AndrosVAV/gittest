@@ -402,3 +402,91 @@ tesla.draw();
 nissan.draw();
 */
 
+
+
+
+
+//Canvas(c.193);
+//РИСОВАНИЕ НА ХОЛСТЕ - черный квадрат(C.194);
+/*
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+ctx.fillRect(0,0,10,10);
+*/
+
+//РИСУЕМ НЕСКОЛЬКО КВАДРАТОВ(C.195)
+/*
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+for(var i = 0;i < 8;i++){
+ctx.fillRect(i * 10,i * 10,10,10);
+}
+*/
+
+//рисуем красный квадрат(c.196);
+/*
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+ctx.fillStyle = "Red";
+ctx.fillRect(0,0,100,100);
+*/
+/*
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+ctx.fillStyle = "Red";
+ctx.fillRect(0,0,100,100);
+ctx.fillStyle = "Violet";
+ctx.fillRect(100,0,100,100);
+ctx.fillStyle = "Orange";
+ctx.fillRect(200,0,100,100);
+*/
+
+
+//Рисование контуров(c.197);
+/*
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+ctx.strokeRect(10,10,100,20);
+*/
+
+//РОЗОВЫЙ КОНТУР ПРЯМОУГОЛЬНИКА С ШИРИНОЙ ЛИНИИ 4 ПИКСЕЛЯ;
+/*
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+ctx.strokeStyle = "DeepPink";
+ctx.lineWidgth = 4;
+ctx.strokeRect(10,10,100,20);
+*/
+
+//Рисование линий или путей(c.198);
+//Бирюзовый крестик нарисованный карандашами moveTo и lineTo
+/*
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+ctx.strokeStyle = "Turquoise";
+ctx.lineWidgth = 4;
+ctx.beginPath();
+ctx.moveTo(10,10);
+ctx.lineTo(60,60);
+ctx.moveTo(60,10);
+ctx.lineTo(10,60);
+ctx.stroke();
+*/
+
+//Заливка путей цветом(c.200);
+//Синий домик залитый цветом с помощью метода fill
+/*
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+ctx.fillStyle = "Blue";
+ctx.lineWidgth = 4;
+ctx.beginPath();
+ctx.moveTo(100,100);
+ctx.lineTo(100,60);
+ctx.lineTo(130,30);
+ctx.lineTo(160,60);
+ctx.lineTo(160,100);
+ctx.lineTo(100,100);
+ctx.fill();
+*/
+
