@@ -490,3 +490,55 @@ ctx.lineTo(100,100);
 ctx.fill();
 */
 
+
+
+
+
+
+/*
+//Рисование дуг и окружностей(c.201);
+//Для этого предназначен метод arc;
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+ctx.lineWidth = 2;//толщина линии
+ctx.strokeStyle = "Green";
+//Рисуем четверть(c.202);
+ctx.beginPath();
+ctx.arc(50,50,20,0,Math.PI/2,false);//false - рисуем по часовой,true  - против часовой
+ctx.stroke();
+//Рисуем половину окружности(c.203)
+ctx.beginPath();
+ctx.arc(100,50,20,0,Math.PI,false);
+ctx.stroke();
+//Рисуем окружность(c.203);
+ctx.beginPath();
+ctx.arc(150,50,20,0,Math.PI * 2,false);
+ctx.stroke();
+
+//Рисование окружностей с помощью функции(c.204);
+
+var circle = function(x,y,radius){
+    ctx.beginPath();
+    ctx.arc(x,y,radius,0,Math.PI * 2,false);
+    ctx.stroke();
+};
+ 
+ctx.lineWidth = 4;
+ctx.strokeStyle = "Red";
+circle(100,100,20);
+ctx.strokeStyle = "Orange";
+circle(100,100,30);
+ctx.strokeStyle = "Yellow";
+circle(100,100,40);
+ctx.strokeStyle = "Green";
+circle(100,100,50);
+ctx.strokeStyle = "Blue";
+circle(100,100,60);
+ctx.strokeStyle = "Purple";
+circle(100,100,70);
+*/
+
+
+
+
+
