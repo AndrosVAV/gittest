@@ -570,8 +570,13 @@ size = 0;
 },30)
 */
 
-//Рисуем пчелу(c.212);
 
+
+
+
+
+/*
+//Рисуем пчелу(c.212);
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 
@@ -619,6 +624,69 @@ circle(x + 2,y - 1,2,false);
         y = update(y);
         ctx.strokeRect(0,0,200,200);
     },30);
+*/
+
+
+
+
+
+/*
+//Отскакивающий мяч(c.217);
+//Конструктор Ball(c.217);
+
+var Ball = function(){
+    this.x = 100;
+    this.y = 100;
+    this.xSpeed = -2;
+    this.ySpeed = 3;
+};
+//Рисуем мяч(c.218);
+var circle = function(x,y,radius,fillCircle){
+    ctx.beginPath();
+    ctx.arc(x,y,radius,0,Math.PI * 2,false);
+    if(fillCircle){
+        ctx.fill();
+    }else{
+        ctx.stroke();
+    }
+};
+Ball.prototype.draw = function(){
+    circle(this.x,this.y,3,true);
+};
+//Перемещение мяча(c.218);
+Ball.prototype.move = function(){
+    this.x += this.xSpeed;
+    this.y += this.ySpeed;
+};
+//Отскоки мяча(c.219);
+Ball.prototype.checkCollision = function(){
+    if(this.x < 0 || this.x > 200){
+        this.xSpeed = -this.xSpeed;
+    }if(this.y < 0 || this.y > 200){
+        this.ySpeed = -this.ySpeed;
+    }
+};
+//Анимация мяча(c.221);
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getCanvas("2d");
+
+var ball = new Ball;
+
+setInterval(function(){
+    ctx.clearRect(0,0,200,200);
+    ball.draw();//рисует мяч и его текущую позицию
+    ball.move();//обновляет значение мяча на основе значений xSpeed и ySpeed
+    ball.checkCollision();//меняет направление мяча если он столкнулся с границей
+
+    ctx.strokeRect(0,0,200,200);//видимые границы
+},30);
+
+*/
+
+
+
+
+
 
 
 
