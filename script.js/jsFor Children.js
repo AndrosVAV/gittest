@@ -684,8 +684,18 @@ setInterval(function(){
 
 
 
+
+
 //Управление анимациями с клавиатуры(c.224);
 //Обработчик события keydown(c.215);
+ /*
+    $("body").keydown(function(event){
+    console.log(event.keyCode);
+    });
+
+    //У каждой клавиши свой код(Например для буквы "П" - 71; "Р" - 72;SHIFT - 16;ENTER - 13);
+    */
+
 
 /*
 var keyNames = {
@@ -693,39 +703,48 @@ var keyNames = {
     37 : "left",
     38 : "up",
     39 : "right",
-    40 : "down"
+    40 : "down",
+    16 : "SHIFT",
+    13 : "ENTER"
     };
     
     $("body").keydown(function(event){
-    console.log(event.keyCode);
+    console.log(keyNames[event.keyCode]);
+    //console.log(keyNames[32]);
     });
-    */
-
-    //Управление мячом с клавиатуры(c.227);
+*/
 
 
-    
-var canvas = document.getElementById("canvas");
-var ctx = canvas.getContext("2d");
+ //Управление мячом с клавиатуры(c.227);
+//Настройка холста;
+var canvas = document.getElementById("canvas");//находим елемент canvas;
+var ctx = canvas.getContext("2d");//метод кот получает контекст рисования;
 var width = canvas.width;
 var height = canvas.height;
-
+//Функция circle - кот рисует мяч;
 var circle = function(x,y,radius,fillCircle){
-	ctx.beginPath();
-	ctx.arc(x,y,radius,0,Math.PI * 2,false);
+	ctx.beginPath();//метод определяет начало рисования нового пути
+    ctx.arc(x,y,radius,0,Math.PI * 2,false);
+    //используем метод arc для создания окружн.в точке(x,y);
+    //радиус;
+    //Начальный угол мы установили в ноль;
+    //Math.PI * 2 - Полная окружность;
+    //false - значит рисовать нужно по часовой стрелке;
+
 	if(fillCircle){
-	ctx.fill();
+	ctx.fill();//заполненная окружность;
 	}else{
-	ctx.stroke();
+	ctx.stroke();//контур окружн;
 	}
 };
+//Создаем конструктор Ball;
 var Ball = function(){
-	this.x = width / 2;
-	this.y = height /2;
-	this.xSpeed = 5;
-	this.xSpeed = 0;
+	this.x = width / 2;//мяч появится в центре холста;
+	this.y = height / 2;
+	this.xSpeed = 5;// мяч после запуска будет двигаться в право;
+	this.ySpeed = 0;
 };
-
+//Обновляем позицию мяча соответственно его скорости;
 Ball.prototype.move = function(){
 	this.x += this.xSpeed;
 	this.y += this.ySpeed;
@@ -739,11 +758,11 @@ Ball.prototype.move = function(){
 	this.y = 0;
 	}
 };
-
+//Рисуем мяч в его текущей позиции;
 Ball.prototype.draw = function(){
 	circle(this.x,this.y,10,true);
 };
-
+//
 Ball.prototype.setDirection = function(direction){
 	if(direction === "up"){
 	this.xSpeed = 0;
