@@ -423,6 +423,20 @@ ctx.fillRect(i * 10,i * 10,10,10);
 }
 */
 
+
+//Рисуем робота(c.196);
+/*
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+ctx.fillRect(50,0,30,30);
+ctx.fillRect(63,15,5,25);
+ctx.fillRect(13,35,110,5);
+ctx.fillRect(30,40,70,50);
+ctx.fillRect(40,90,5,35);
+ctx.fillRect(87,87,5,38);
+*/
+
+
 //рисуем красный квадрат(c.196);
 /*
 var canvas = document.getElementById("canvas");
@@ -441,6 +455,26 @@ ctx.fillStyle = "Orange";
 ctx.fillRect(200,0,100,100);
 */
 
+//Рисуем квадратики
+/*
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+ctx.fillStyle = "Blue";
+ctx.fillRect(0,0,100,100);
+ctx.fillStyle = "Violet";
+ctx.fillRect(100,0,100,100);
+ctx.fillStyle = "Purple";
+ctx.fillRect(200,0,100,100);
+
+ctx.fillStyle = "Red";
+ctx.fillRect(0,100,100,100);
+ctx.fillStyle = "Green";
+ctx.fillRect(100,100,100,100);
+ctx.fillStyle = "Orange";
+ctx.fillRect(200,100,100,100);
+
+*/
+
 
 //Рисование контуров(c.197);
 /*
@@ -457,6 +491,38 @@ ctx.strokeStyle = "DeepPink";
 ctx.lineWidgth = 4;
 ctx.strokeRect(10,10,100,20);
 */
+
+
+//Рисование контуров 
+/*
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+ctx.strokeStyle = "DeepPink";
+ctx.lineWidth = 4;
+ctx.strokeRect(10,10,80,20);
+
+ctx.strokeStyle = "Pink";
+ctx.lineWidth = 4;
+ctx.strokeRect(110,10,80,20);
+
+ctx.strokeStyle = "Red";
+ctx.lineWidth = 4;
+ctx.strokeRect(210,10,80,20);
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //Рисование линий или путей(c.198);
 //Бирюзовый крестик нарисованный карандашами moveTo и lineTo
@@ -714,7 +780,7 @@ var keyNames = {
     });
 */
 
-
+/*
  //Управление мячом с клавиатуры(c.227);
 //Настройка холста;
 var canvas = document.getElementById("canvas");//находим елемент canvas;
@@ -807,14 +873,16 @@ var keyActions = {
 	var direction = keyActions[event.keyCode];//поиск названия нажатой клавиши и присваиваем это значение переменной direction; 
     ball.setDirection(direction);//передаем строку с направлением;
     });
-    
+
 //Функция анимации вызывается раз в 30 мс;	
 setInterval(function(){
 	ctx.clearRect(0,0,width,height);
 	ball.draw();
 	ball.move();
 	ctx.strokeRect(0,0,width,height);
-},30);	
+},30);
+*/
+
 
 
 
