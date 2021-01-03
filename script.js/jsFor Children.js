@@ -721,6 +721,7 @@ var canvas = document.getElementById("canvas");//находим елемент c
 var ctx = canvas.getContext("2d");//метод кот получает контекст рисования;
 var width = canvas.width;
 var height = canvas.height;
+
 //Функция circle - кот рисует мяч;
 var circle = function(x,y,radius,fillCircle){
 	ctx.beginPath();//метод определяет начало рисования нового пути
@@ -730,13 +731,13 @@ var circle = function(x,y,radius,fillCircle){
     //Начальный угол мы установили в ноль;
     //Math.PI * 2 - Полная окружность;
     //false - значит рисовать нужно по часовой стрелке;
-
-	if(fillCircle){
+    if(fillCircle){
 	ctx.fill();//заполненная окружность;
 	}else{
 	ctx.stroke();//контур окружн;
 	}
 };
+
 //Создаем конструктор Ball;
 var Ball = function(){
 	this.x = width / 2;//мяч появится в центре холста;
@@ -744,10 +745,14 @@ var Ball = function(){
 	this.xSpeed = 5;// мяч после запуска будет двигаться в право;
 	this.ySpeed = 0;
 };
+
 //Обновляем позицию мяча соответственно его скорости;
+//перемещает мяч в новую позицию в зависимости от его текущей позиции;
 Ball.prototype.move = function(){
 	this.x += this.xSpeed;
-	this.y += this.ySpeed;
+    this.y += this.ySpeed;
+    //данная конструкция проверяет нашел ли мяч границу холста;
+    //если так и есть перенесет мяч на противоположную сторону;
 	if(this.x < 0){
 	this.x = width;
 	}else if(this.x > width){
@@ -758,11 +763,15 @@ Ball.prototype.move = function(){
 	this.y = 0;
 	}
 };
+
 //Рисуем мяч в его текущей позиции;
+//Вызывает функцию передавая ей координаты центра,радиус и true -  в качестве аргумента fillCircle;
 Ball.prototype.draw = function(){
 	circle(this.x,this.y,10,true);
 };
-//
+
+//Задаем направление движения по строке с названием действия;
+//метод получает инфу о нажатой клавише;
 Ball.prototype.setDirection = function(direction){
 	if(direction === "up"){
 	this.xSpeed = 0;
@@ -782,8 +791,9 @@ Ball.prototype.setDirection = function(direction){
 	}
 };
 
+//Создаем обьект мяч;
 var ball = new Ball();
-
+//Обьект для перевода кодов клавиш в названия действий;
 var keyActions = {
     32 : "stop",
     37 : "left",
@@ -791,12 +801,14 @@ var keyActions = {
     39 : "right",
     40 : "down"
     };
-    
+
+    //Обработчик события будет вызван при каждом нажатии клавиши;
     $("body").keydown(function(event){
-	var direction = keyActions[event.keyCode];
-    ball.setDirection(direction);
+	var direction = keyActions[event.keyCode];//поиск названия нажатой клавиши и присваиваем это значение переменной direction; 
+    ball.setDirection(direction);//передаем строку с направлением;
     });
-	
+    
+//Функция анимации вызывается раз в 30 мс;	
 setInterval(function(){
 	ctx.clearRect(0,0,width,height);
 	ball.draw();
