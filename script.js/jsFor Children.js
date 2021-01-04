@@ -511,19 +511,6 @@ ctx.strokeRect(210,10,80,20);
 */
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 //Рисование линий или путей(c.198);
 //Бирюзовый крестик нарисованный карандашами moveTo и lineTo
 /*
@@ -538,6 +525,62 @@ ctx.moveTo(60,10);
 ctx.lineTo(10,60);
 ctx.stroke();
 */
+
+//Рисуем крестики
+/*
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+ctx.strokeStyle = "DeepPink";
+ctx.lineWidth = 4;
+ctx.beginPath();
+ctx.moveTo(10,10);
+ctx.lineTo(60,60);
+ctx.moveTo(60,10);
+ctx.lineTo(10,60);
+ctx.stroke();
+ctx.beginPath();
+ctx.strokeStyle = "Green";
+ctx.moveTo(70,10);
+ctx.lineTo(120,60);
+ctx.moveTo(120,10);
+ctx.lineTo(70,60);
+ctx.stroke();
+ctx.beginPath();
+ctx.strokeStyle = "Red";
+ctx.moveTo(130,10);
+ctx.lineTo(190,60);
+ctx.moveTo(190,10);
+ctx.lineTo(130,60);
+ctx.stroke();
+*/
+//Попробуй нарисуй человечка(c.200);
+/*
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+ctx.strokeStyle = "DeepPink";
+ctx.lineWidth = 4;
+ctx.beginPath();
+ctx.moveTo(50,10);
+ctx.lineTo(80,10);
+ctx.lineTo(80,30);
+ctx.lineTo(50,30);
+ctx.lineTo(50,10);
+ctx.moveTo(65,30);
+ctx.lineTo(65,50);
+ctx.moveTo(65,50);
+ctx.lineTo(90,40);
+ctx.moveTo(65,50);
+ctx.lineTo(40,40);
+ctx.moveTo(65,50);
+ctx.lineTo(65,110);
+ctx.moveTo(65,110);
+ctx.lineTo(90,150);
+ctx.moveTo(65,110);
+ctx.lineTo(40,150);
+ctx.stroke();
+*/
+
+
 
 //Заливка путей цветом(c.200);
 //Синий домик залитый цветом с помощью метода fill
@@ -556,8 +599,33 @@ ctx.lineTo(100,100);
 ctx.fill();
 */
 
-
-
+//Рисуем домики
+/*
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+ctx.fillStyle = "Yellow";
+ctx.lineWidth = 4;
+ctx.beginPath();
+ctx.moveTo(50,10);
+ctx.lineTo(80,30);
+ctx.lineTo(80,60);
+ctx.lineTo(30,60);
+ctx.lineTo(30,30);
+ctx.lineTo(50,10);
+ctx.fill();
+ctx.stroke();
+ctx.beginPath();
+ctx.fillStyle = "Red";
+ctx.moveTo(110,10);
+ctx.lineTo(80,30);
+ctx.moveTo(110,10);
+ctx.lineTo(140,30);
+ctx.lineTo(140,60);
+ctx.lineTo(80,60);
+ctx.lineTo(80,30);
+ctx.fill();
+ctx.stroke();
+*/
 
 
 
@@ -604,12 +672,50 @@ ctx.strokeStyle = "Purple";
 circle(100,100,70);
 */
 
+//Рисуем снеговика(c.205);
 
- //Анимация с CANVAS(c.208);
 /*
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 
+var circle = function(x,y,radius,fillCircle){
+	ctx.beginPath();
+	ctx.lineWidth = 2;
+	ctx.arc(x,y,radius,0,Math.PI * 2,false);
+	if(fillCircle){
+	ctx.fill();
+	}else{
+	ctx.stroke();
+	}
+	};
+circle(50,15,13,false);
+circle(50,55,25,false);
+ctx.beginPath();
+ctx.moveTo(75,45);
+ctx.lineTo(100,65);
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(25,45);
+ctx.lineTo(0,75);
+ctx.stroke();
+circle(50,130,50,false);
+
+circle(45,10,3,true);
+circle(55,10,3,true);
+circle(50,18,3,true);
+
+circle(50,40,3,true);
+circle(50,50,3,true);
+circle(50,60,3,true);
+*/
+
+
+
+//Анимация с CANVAS(c.208);
+/*
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
 
 //Рисование квадрата(c.209); 
 var position = 0;
