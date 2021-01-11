@@ -993,6 +993,60 @@ setInterval(function(){
 
 
 
+
+//Пишем игру змейку(c.237);
+//<canvas id = "canvas" width = "400" height = "400"></canvas>
+
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+var width = canvas.width;
+var height = canvas.height;
+
+var blockSize = 10;
+// 10 пикселей будет ширина и высота;
+var widthInBlocks = width/blockSize;
+var heightInBlocks = height/blockSize;
+//Сейчас ширина и высота холста составляет по 40 клеток;
+var score = 0;
+// счетчик;
+// Рисуем рамку;
+var drawBorder = function(){
+	ctx.fillStyle = "Gray";
+	ctx.fillRect(0,0,width,blockSize);
+	ctx.fillRect(0,height - blockSize,width,blockSize);
+	ctx.fillRect(0,0,blockSize,height);
+	ctx.fillRect(width - blockSize,0,blockSize,height);
+};
+//Проверка;
+//drawBorder();
+//ctx.fillText("JAVASCRIPT это круто",50,50);
+
+var drawScore = function(){
+	ctx.font = "20px Courler";
+	ctx.fillStyle = "Black";
+	ctx.textAlign = "left";
+	ctx.textBaseline = "top";
+	ctx.fillText("Счет: " + score,blockSize,blockSize);
+};
+
+var gameOver = function(){
+	//clearInterval(intervalId);
+	ctx.font = "60px Courler";
+	ctx.fillStyle = "Black";
+	ctx.textAlign = "center";
+	ctx.textBaseline = "midle";
+	ctx.fillText("Конец игры",width / 2,height / 2);
+};
+
+
+
+
+
+
+
+
+
+
     
 
 
