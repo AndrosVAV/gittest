@@ -1175,6 +1175,145 @@ Snake.prototype.move = function(){
 
 
 
+//Добавляем метод checkCollision(c.262);
+
+
+
+
+//Проверка столкновений
+Snake.prototype.checkCollision = function(head){
+    //проверка столкновений со стенами;
+        leftCollision = (head.col === 0);
+        topCollision = (head.row === 0);
+        rightCollision = (head.col === widthInBlocks - 1 );
+        bottomCollision = (head.row === heightInBlocks - 1);
+        
+        var wallCollision = leftCollision || topCollision || rightCollision || bottomCollision;
+        //Проверка столкновения с собственным телом
+        var selfCollision = false;
+        
+        for(var i = 0;i < this.segments.length;i++){
+            if(head.equal(this.segments[i])){
+                selfCollision = true;
+            }
+        }
+        return wallCollision || selfCollision;
+    };
+    
+    //Управляем змейкой с клавиатуры
+    
+    
+    
+    /*
+    //Обработчик события keydown(c.264);
+    //(аналог c.231);
+    var direction = {
+        37 : "left",
+        38 : "up",
+        39 : "right",
+        40 : "down"
+    };
+    
+    $("body").keydown(function(event){
+        var newDirection = direction[event.keyCode];
+        if(newDirection != undefined){
+        snake.setDirection(newDirection);
+        }
+    });
+    */
+    
+    
+    
+    
+    
+    
+    
+    //Создаем метод setDirection(c.265);
+    // Проверка на недопустимое направление
+    
+    Snake.prototype.setDirection = function(newDirection){
+        if(this.direction === "up" && newDirection === "down"){
+        return;
+        }else if(this.direction === "right" && newDirection === "left"){
+        return;
+        }else if(this.direction === "down" && newDirection === "up"){
+        return;
+        }else if(this.direction === "left" && newDirection === "right"){
+        return;
+        }
+        this.newDirection = newDirection;
+    };
+    
+    //Создаем яблоко(c.266);
+    var Apple = function(){
+    this.position = new Block(10,10);
+    };
+    //Рисуем яблоко(c.267);
+    Apple.prototype.draw = function(){
+        this.position.drawCircle("LimeGreen");
+    };
+    
+    
+    
+    //Проверка
+    //var apple = new Apple();
+    //apple.draw();
+    
+    
+    //Перемещаем яблоко(c.267);
+    
+    Apple.prototype.move = function(){
+    var randomCol = Math.floor(Math.random() * (widthInBlocks - 2)) + 1;
+    var randomRow = Math.floor(Math.random() * (heightInBlocks - 2)) + 1;
+    this.position = new Block(randomCol,randomRow);
+    };
+    
+    //Создаем обьект- змейку и обьект яблоко
+    var snake = new Snake();
+    var apple = new Apple();
+    
+    //Запускаем анимацию через setInterval
+    var intervalId = setInterval(function(){
+        ctx.clearRect(0,0,width,height);
+        drawScore();
+        snake.move();
+        snake.draw();
+        apple.draw();
+        drawBorder();
+    },100);
+    
+    
+    //Обработчик события keydown(c.264);
+    //(аналог c.231);
+    var direction = {
+        37 : "left",
+        38 : "up",
+        39 : "right",
+        40 : "down"
+    };
+    
+    $("body").keydown(function(event){
+        var newDirection = direction[event.keyCode];
+        if(newDirection !== undefined){
+        snake.setDirection(newDirection);
+        }
+    });
+    
+    
+    //Проверка
+    //var apple = new Apple();
+    //apple.move();
+    //apple.draw();
+    
+    
+    
+    
+    
+    
+    
+
+
+
 
 
 
