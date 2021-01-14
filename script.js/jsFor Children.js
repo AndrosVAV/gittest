@@ -1090,7 +1090,7 @@ sampleCircle.drawCircle("LightGreen");
 //Метод equal(c.256);
 
 Block.prototype.equal = function(otherBlock){
-	return this.col === otherBlock && this.row === otherBlock;
+	return this.col === otherBlock.col && this.row === otherBlock.row;
 };
 
 
@@ -1183,10 +1183,10 @@ Snake.prototype.move = function(){
 //Проверка столкновений
 Snake.prototype.checkCollision = function(head){
     //проверка столкновений со стенами;
-        leftCollision = (head.col === 0);
-        topCollision = (head.row === 0);
-        rightCollision = (head.col === widthInBlocks - 1 );
-        bottomCollision = (head.row === heightInBlocks - 1);
+       var leftCollision = (head.col === 0);
+        var topCollision = (head.row === 0);
+        var rightCollision = (head.col === widthInBlocks - 1 );
+        var bottomCollision = (head.row === heightInBlocks - 1);
         
         var wallCollision = leftCollision || topCollision || rightCollision || bottomCollision;
         //Проверка столкновения с собственным телом
@@ -1241,7 +1241,7 @@ Snake.prototype.checkCollision = function(head){
         }else if(this.direction === "left" && newDirection === "right"){
         return;
         }
-        this.newDirection = newDirection;
+        this.nextDirection = newDirection;
     };
     
     //Создаем яблоко(c.266);
